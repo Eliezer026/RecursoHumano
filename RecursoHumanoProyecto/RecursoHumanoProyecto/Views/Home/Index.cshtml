@@ -2,30 +2,187 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>Bootstrap Theme Company Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .jumbotron {
+            background-color: #f4511e;
+            color: #fff;
+            padding: 100px 25px;
+        }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            color: #f4511e;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: #f4511e;
+            font-size: 200px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+            .thumbnail img {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 10px;
+            }
+
+        .carousel-control.right, .carousel-control.left {
+            background-image: none;
+            color: #f4511e;
+        }
+
+        .carousel-indicators li {
+            border-color: #f4511e;
+        }
+
+            .carousel-indicators li.active {
+                background-color: #f4511e;
+            }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid #f4511e;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+            .panel:hover {
+                box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+            }
+
+        .panel-footer .btn:hover {
+            border: 1px solid #f4511e;
+            background-color: #fff !important;
+            color: #f4511e;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #f4511e !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+            .panel-footer h3 {
+                font-size: 32px;
+            }
+
+            .panel-footer h4 {
+                color: #aaa;
+                font-size: 14px;
+            }
+
+            .panel-footer .btn {
+                margin: 15px 0;
+                background-color: #f4511e;
+                color: #fff;
+            }
+
+        media screen and (max-width: 768px) {
+            .col-sm-4
+
+        {
+            text-align: center;
+            margin: 25px 0;
+        }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container (Pricing Section) -->
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2>Modulo Mantenimientos</h2>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h1 class="glyphicon glyphicon-cog">Empleados</h1>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                    <div class="panel-footer">
+
+                        <button class="btn btn-lg glyphicon glyphicon-plus"><a href="~/Empleados/Create"></a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h1 class="glyphicon glyphicon-cog">Departamentos</h1>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                    <div class="panel-footer">
+
+                        <button class="btn btn-lg glyphicon glyphicon-plus"><a href="#myPage"></a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h1 class="glyphicon glyphicon-cog">Cargos</h1>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                    <div class="panel-footer">
+
+                        <button class="btn btn-lg glyphicon glyphicon-plus"><a href="#myPage"></a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</body>
+</html>
+
