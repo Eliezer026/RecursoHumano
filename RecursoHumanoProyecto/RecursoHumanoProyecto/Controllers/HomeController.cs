@@ -26,5 +26,10 @@ namespace RecursoHumanoProyecto.Controllers
 
             return View();
         }
+
+        public ActionResult ModuloProceso()
+        {
+            return View();
+        }
     }
 }
