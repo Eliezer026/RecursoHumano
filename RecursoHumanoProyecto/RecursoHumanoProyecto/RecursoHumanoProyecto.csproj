@@ -279,6 +279,8 @@
     <Content Include="Views\Departamentos\Edit.cshtml" />
     <Content Include="Views\Departamentos\Index.cshtml" />
     <Content Include="Views\Home\ModuloProceso.cshtml" />
+    <Content Include="Views\Empleados\Nomina.cshtml" />
+    <Content Include="Views\Empleados\Deshabilitar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

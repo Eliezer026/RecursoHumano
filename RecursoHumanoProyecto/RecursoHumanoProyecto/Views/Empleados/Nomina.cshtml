@@ -1,0 +1,59 @@
+﻿@model RecursoHumanoProyecto.Models.Nomina
+
+@using RecursoHumanoProyecto.Models
+
+@{
+    /**/
+
+    ViewBag.Title = "Nomina";
+}
+
+
+
+
+<h2>
+    Nomina
+    @ViewBag.Suma
+</h2>
+
+<div class="form-horizontal">
+    @using (Html.BeginForm("Nomina", "Empleados", FormMethod.Post))
+    {
+        <div>
+            @Html.LabelForModel("Id")
+            @Html.EditorFor(a => a.Id, "Ponga un Id", new { @class = "form-control" })
+        </div>
+
+
+        <div>
+            @Html.LabelForModel("Mes")
+            @Html.EditorFor(a => a.Mes, "Ponga un mes", new { @class = "form-control" })
+        </div>
+
+        <div>
+            @Html.LabelForModel("Anos")
+            @Html.EditorFor(a => a.Anos, "Ponga un anos", new { @class = "form-control" })
+        </div>
+
+
+
+
+
+        <input type="submit" value="Calcular" />
+    }
+
+
+</div>
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+
+            alert("@ViewBag.Message");
+        };
+    </script>
+
+
+}

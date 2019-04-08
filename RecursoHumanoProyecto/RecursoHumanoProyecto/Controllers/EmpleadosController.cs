@@ -22,6 +22,105 @@ namespace RecursoHumanoProyecto.Controllers
         }
 
 
+        public ActionResult Deshabilitar() {
+
+           
+
+            return View();
+        }
+
+
+
+        public ActionResult Nomina([Bind(Include = "Id,Mes,Anos,Nomina1")]Models.Nomina model)
+        {
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            if (model.Id == 0)
+            {
+
+
+                var eliminar = db.Nomina.FirstOrDefault(x => x.Id == 0);
+
+                if (eliminar != null)
+                {
+
+                    db.Nomina.Remove(eliminar);
+                    db.SaveChanges();
+                }
+
+            }
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            var estado = from s in db.Empleados.ToList()
+                         where (s.Estatus.Equals("activo"))
+                         select s.Salario;
+
+
+            var estadoo = from s in db.Empleados.ToList()
+                          where (s.Estatus.Equals("inactivo"))
+                          select s.Salario;
+
+            if (estado != estadoo)
+            {
+
+
+                var Mes = model.Mes;
+                var Anos = model.Anos;
+
+                var empleado = from s in db.Empleados.ToList()
+                               where s.Anos.Equals(Anos) && s.Mes.Equals(Mes) && s.Estatus.Equals("activo")
+                               select s.Salario;
+
+
+                double guarda = empleado.Sum();
+                float nomin = Convert.ToSingle(guarda);
+
+                ViewBag.Suma = empleado.Sum();
+               
+                model.Nomina1 = nomin;
+
+
+
+                /*
+                var total = empleado.Sum();
+
+                var actualizar = db.Empleados.FirstOrDefault(x => x.Id ==x.Id);
+                actualizar.Salario = total;
+                db.SaveChanges();*/
+
+
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+
+
+
+            if (ModelState.IsValid)
+            {
+                db.Nomina.Add(model);
+                db.SaveChanges();
+
+            }
+            else
+            {
+                ViewBag.Message = "Verifique que haiga puesto el mes Correctamente";
+            }
+
+
+
+            return View("Nomina");
+
+        }
+
+
+
+
+
+
+
 
         public ActionResult Busqueda(String Nombre_Empleados)
         {
@@ -37,6 +136,8 @@ namespace RecursoHumanoProyecto.Controllers
             return View(proviene);
 
         }
+
+
 
 
 

@@ -11,10 +11,14 @@ namespace RecursoHumanoProyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Nomina
     {
         public int Id { get; set; }
+
+        [Range(0, 12, ErrorMessage = "ponga un mes que sea correcto {1} y {2}")]
+        [Required(ErrorMessage = "ponga un mes por favor")]
         public int Mes { get; set; }
         public int Anos { get; set; }
         public double Nomina1 { get; set; }
