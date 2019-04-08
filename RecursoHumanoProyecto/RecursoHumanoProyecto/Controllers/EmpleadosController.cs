@@ -21,6 +21,25 @@ namespace RecursoHumanoProyecto.Controllers
             return View(empleados.ToList());
         }
 
+
+
+        public ActionResult Busqueda(String Nombre_Empleados)
+        {
+
+            var proviene = from s in db.Empleados select s;
+
+            if (!String.IsNullOrEmpty(Nombre_Empleados))
+            {
+
+                proviene = proviene.Where(j => j.Nombre.Contains(Nombre_Empleados));
+            }
+
+            return View(proviene);
+
+        }
+
+
+
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {
@@ -62,6 +81,11 @@ namespace RecursoHumanoProyecto.Controllers
             ViewBag.IdDepartamento = new SelectList(db.Departamento, "Id", "NombreDepartamento", empleados.IdDepartamento);
             return View(empleados);
         }
+
+
+       
+
+
 
         // GET: Empleados/Edit/5
         public ActionResult Edit(int? id)

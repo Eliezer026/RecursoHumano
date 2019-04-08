@@ -1,0 +1,111 @@
+﻿@model IEnumerable<RecursoHumanoProyecto.Models.Empleados>
+
+@{
+    ViewBag.Title = "Busqueda";
+}
+
+<h2>Busqueda</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Busqueda", "Empleados", FormMethod.Get))
+    {
+
+    <p>
+
+        Buscar el Nombre: @Html.TextBox("Nombre_Empleados")<br />
+        <input type="submit" value="Busqueda" />
+
+    </p>
+}
+    </p>
+
+
+    <table id="Tableid" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dias)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Anos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cargo.CargoEmpleado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Departamento.NombreDepartamento)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dias)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Anos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cargo.CargoEmpleado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departamento.NombreDepartamento)
+                    </td>
+                    <td>
+
+                        <a class="btn btn-primary" href="~/Empleados/Edit/@item.Id">Editar</a>
+                        <a class="btn btn-info" href="~/Empleados/Details/@item.Id">Detalles</a>
+                        <a class="btn btn-danger" href="~/Empleados/Delete/@item.Id">Eliminar</a>
+
+                    </td>
+                </tr>
+            }
+
+        </thead>
+    </table>
+
