@@ -19,12 +19,17 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand glyphicon glyphicon-home" href="~/Home/Index"> RecursoHumano</a>
+
+              
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Mantenimiento", "Deshabilitar", "Empleados")</li>
-                    <li>@Html.ActionLink("Procesos", "ModuloProceso", "Home")</li>
-                    <li>@Html.ActionLink("Informes", "Index", "Departamentos")</li>
+                 
+                    <a class="navbar-brand glyphicon glyphicon-wrench" href="~/Home/Index">Mantenimiento</a>
+                    <a class="navbar-brand glyphicon glyphicon-cog" href="~/Home/ModuloProceso">Procesos</a>
+                    <a class="navbar-brand glyphicon glyphicon-list-alt" href="~/Home/ModuloInformes">Informes</a>
+
+
                 </ul>
             </div>
         </div>
@@ -43,3 +48,5 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+

@@ -31,5 +31,14 @@ namespace RecursoHumanoProyecto.Controllers
         {
             return View();
         }
+
+
+        public ActionResult ModuloInformes()
+        {
+
+
+
+            return View();
+        }
     }
 }

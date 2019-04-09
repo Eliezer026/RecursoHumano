@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RecursoHumanoProyecto.Models.Nomina>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Nominas</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anos)
+        </th>
+        <th>
+            Nomina
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nomina1)
+        </td>
+       
+    </tr>
+}
+
+</table>

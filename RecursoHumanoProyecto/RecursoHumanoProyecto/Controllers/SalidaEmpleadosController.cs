@@ -21,6 +21,25 @@ namespace RecursoHumanoProyecto.Controllers
             return View(salidaEmpleado.ToList());
         }
 
+
+        public ActionResult SalidaEmpleadoPorMes(String Salida_Por_Mes) {
+
+
+            var proviene = from s in db.SalidaEmpleado select s;
+
+            if (!String.IsNullOrEmpty(Salida_Por_Mes))
+            {
+
+              
+
+                proviene = proviene.Where(j => j.Empleados.Nombre.Contains(Salida_Por_Mes));
+            }
+
+
+            return View(proviene);
+        }
+
+
         // GET: SalidaEmpleados/Details/5
         public ActionResult Details(int? id)
         {

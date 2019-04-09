@@ -22,12 +22,53 @@ namespace RecursoHumanoProyecto.Controllers
         }
 
 
-        public ActionResult Deshabilitar() {
+        public ActionResult EmpleadoInactivo(String buscar)
+        {
+
+
+
+            var estado = from s in db.Empleados.ToList()
+                         where (s.Estatus.Equals("inactivo"))
+                         select s;
+
+
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                
+                estado = estado.Where(j => j.Nombre.Contains(buscar));
+            }
 
            
 
-            return View();
+            return View(estado.ToList());
         }
+
+
+
+
+        public ActionResult EmpleadoActivo(String buscar)
+
+        {
+
+
+            var estado = from s in db.Empleados.ToList()
+                         where (s.Estatus.Equals("activo"))
+                         select s;
+
+            if (!String.IsNullOrEmpty(buscar)) {
+
+
+                estado = estado.Where(g => g.Nombre.Contains(buscar));
+
+            }
+
+
+            return View(estado.ToList());
+
+
+        }
+
+
 
 
 
@@ -84,12 +125,7 @@ namespace RecursoHumanoProyecto.Controllers
 
 
 
-                /*
-                var total = empleado.Sum();
-
-                var actualizar = db.Empleados.FirstOrDefault(x => x.Id ==x.Id);
-                actualizar.Salario = total;
-                db.SaveChanges();*/
+               
 
 
             }
@@ -115,6 +151,26 @@ namespace RecursoHumanoProyecto.Controllers
 
         }
 
+
+
+
+
+        public ActionResult EntradaEmpleada(String Nombre_Empleados)
+        {
+
+            var proviene = from s in db.Empleados select s;
+
+            if (!String.IsNullOrEmpty(Nombre_Empleados))
+            {
+
+                int a = Int32.Parse(Nombre_Empleados);
+
+                proviene = proviene.Where(j => j.Dias.Equals(a));
+            }
+
+            return View(proviene);
+
+        }
 
 
 
@@ -222,6 +278,8 @@ namespace RecursoHumanoProyecto.Controllers
             ViewBag.IdDepartamento = new SelectList(db.Departamento, "Id", "NombreDepartamento", empleados.IdDepartamento);
             return View(empleados);
         }
+
+
 
         // GET: Empleados/Delete/5
         public ActionResult Delete(int? id)

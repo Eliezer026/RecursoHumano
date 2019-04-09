@@ -1,20 +1,35 @@
 ﻿@model IEnumerable<RecursoHumanoProyecto.Models.Empleados>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "EntradaEmpleada";
 }
 
-<h2>Index</h2>
+<h2>Lista</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-   
+    
+    @using (Html.BeginForm("EntradaEmpleada", "Empleados", FormMethod.Get))
+    {
+
+<p>
+
+
+
+
+
+    Buscar el Nombre: @Html.TextBox("Nombre_Empleados")<br />
+    <button type="submit" class="btn btn-success">
+        <span class="glyphicon glyphicon-search"></span> Buscar
+    </button>
+
 </p>
+}
 
 
 
-<table id="Tableid" class="table table-striped table-bordered" style="width:100%">
-    <thead>
+
+    </p>
+    <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Codigo)
@@ -89,14 +104,9 @@
                     @Html.DisplayFor(modelItem => item.Departamento.NombreDepartamento)
                 </td>
                 <td>
-
-                    <a class="btn btn-primary" href="~/Empleados/Edit/@item.Id">Editar</a>
-                    <a class="btn btn-info" href="~/Empleados/Details/@item.Id">Detalles</a>
-                    <a class="btn btn-danger" href="~/Empleados/Delete/@item.Id">Eliminar</a>
-
+                   
                 </td>
             </tr>
         }
 
-    </thead>
-</table>
+    </table>
